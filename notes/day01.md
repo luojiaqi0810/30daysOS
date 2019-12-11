@@ -30,3 +30,39 @@ F0 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 F0 FF FF 00 00 00 00 00 00 00 00 00 00 00 00 00
 ```
 
+将镜像保存为helloos.img
+
+
+
+打开附带光盘文件夹，复制其中得tolset文件夹到任意位置，后续我们自己开发的软件也要放到这个文件夹里。
+
+
+
+在tolset中新建helloos0文件夹，将helloos.img复制进来，并将tolset/z_new_w下的!cons_9x.bat和!cons_nt.bat复制进来。
+
+
+
+在helloOS0中新建run.bat，内容为：
+
+```bash
+copy helloos.img ../z_tools/qemu/fdimage0.bin
+..￥/z_tools/make.exe -C ../z_tools/qemu
+```
+
+```bash
+copy helloos.img ..\z_tools\qemu\fdimage0.bin
+..\z_tools\make.exe	-C ../z_tools/qemu
+```
+
+
+
+新建install.bat，内容为：
+
+```bash
+.. ￥/z_tools/imgtol.com w a: helloos.img
+```
+
+```bash
+..\z_tools\imgtol.com w a: helloos.img
+```
+
